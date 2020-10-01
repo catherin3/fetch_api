@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  state = {
+    loading: true,
+    abilities: null
+  }
+
+  async componentDidMount() {
+    const url = "https://pokeapi.co/api/v2/pokemon/ditto";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ abilities: data.abilities[0], loading: false });
+    // console.log(data.abilities[0]);
+  }
+
+  render() {
+
+    return (
+      <div>
+        {this.state.loading || !this.state.abilities ? (
+          <div>loading...</div>
+        ) : (
+            <div>
+              <div>{this.state.abilities.ability.name}</div>
+              <div>{this.state.abilities.ability.url}</div>
+              <div>{this.state.abilities.slot}</div>
+            </div>
+          )}
+
+      </div>
+    );
+  }
 }
-
 export default App;
