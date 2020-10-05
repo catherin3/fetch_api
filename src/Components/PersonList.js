@@ -12,7 +12,10 @@ export default class PersonList extends React.Component{
         .then(res =>{
             console.log(res);
             this.setState({persons: res.data});
-        });
+        })
+        .catch(function(error){
+            console.log(error);
+        })
     }
 
     render(){

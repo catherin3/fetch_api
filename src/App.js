@@ -1,6 +1,7 @@
 import React from 'react';
 import PersonList from './Components/PersonList';
 import PersonInput from './Components/PersonInput';
+import Axios1 from './Components/Axios1';
 
 
 class App extends React.Component {
@@ -9,8 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <PersonInput />
-        <PersonList  />
+        <Axios1 />
       </div>
     );
   }
