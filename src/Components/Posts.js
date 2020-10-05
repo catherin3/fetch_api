@@ -18,20 +18,15 @@ const Posts = ({ posts, loading }) => {
 
 
     return (
-        <TableContainer component={Paper} style={{ listStyle: 'none' }}>
-            <Table className={classes.table} aria-label="simple table">
-                <TableBody>
-                    {posts.map(post => (
-                        <TableRow key={post.id}>
-                            <TableCell component="th" scope="row"> <li key={post.id} className="list-group-item">
-                                {post.title}
-                            </li></TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+        <div>
+            {posts.map(post => (
+                <li key={post.id} className="list-group-item">
+                    {post.title}
+                </li>
+            ))}
 
-        </TableContainer>
+
+        </div>
     );
 };
 

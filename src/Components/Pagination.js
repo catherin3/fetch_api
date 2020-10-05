@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper,makeStyles, Table,TableRow, TableHead, TableCell} from '@material-ui/core';
+import { makeStyles, Table, TableRow, TableHead, TableCell } from '@material-ui/core';
 
 const useStyles = makeStyles({
     table: {
@@ -21,22 +21,15 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 
     return (
         <nav>
-            <ul className="pagination" style={{listStyle: 'none'}}>
-            <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
+            <ul className="pagination" style={{ listStyle: 'none' }}>
                 {pageNumbers.map(number => (
-                    <TableCell>
                     <li key={number} className="page-item">
-                        <a onClick={()=> paginate(number)} href="!#" className="page-link">
+                        <a onClick={() => paginate(number)} href="!#" className="page-link">
                             {number}
                         </a>
                     </li>
-                    </TableCell>
                 ))}
-                </TableRow>
-                </TableHead>
-                </Table>
+
             </ul>
         </nav>
     )
